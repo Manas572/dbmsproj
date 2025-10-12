@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<h1>Database Tables</h1>
+
+<table border="1">
+    <tr>
+        <th>Table Name</th>
+        <th>Action</th>
+    </tr>
+
+    <tr>
+        <td>Employee</td>
+        <td>
+            <a href="{% url 'view_employee' %}">
+                <button class="btn btn-dark">View</button>
+            </a>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Departments</td>
+        <td>
+            <a href="{% url 'view_department' %}">
+                <button class="btn btn-dark">View</button>
+            </a>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Projects</td>
+        <td>
+            <a href="{% url 'view_project' %}">
+                <button class="btn btn-dark">View</button>
+            </a>
+        </td>
+    </tr>
+
+    <tr>
+        <td>EmployeeProjects</td>
+        <td>
+            <a href="{% url 'view_employeeproject' %}">
+                <button class="btn btn-dark">View</button>
+            </a>
+        </td>
+    </tr>
+</table>
+{% endblock %}

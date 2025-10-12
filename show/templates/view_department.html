@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}Table{% endblock %}
+
+{% block content %}
+<h1>Department Table</h1>
+
+<table>
+<tr>
+    <th>Department_ID</th>
+    <th>Department_Name</th>
+    <th>Head_of_Department</th>
+    <th>Update</th>
+    <th>Delete</th>
+</tr>
+{% for d in departments %}
+<tr>
+    <td>{{ d.department_id }}</td>
+    <td>{{ d.department_name }}</td>
+    <td>{{ d.head_of_department }}</td>
+    <td>  <a href="{% url 'department_edit' d.department_id %}">
+    <button type="button" class="btn btn-warning">Update</button>
+  </a></td>
+    <td>
+       <a href="{% url 'department_delete' d.department_id %}">
+    <button type="button" class="btn btn-danger">Delete</button>
+</a>
+        </td>
+
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<div style="text-align: center;">
+    <a href="{% url 'department_create' %}">
+        <button type="button" class="btn btn-primary">Insert</button>
+    </a>
+</div>
+{% endblock %}

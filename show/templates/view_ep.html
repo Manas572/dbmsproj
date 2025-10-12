@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}Table{% endblock %}
+
+{% block content %}
+<h1>Employee project Table</h1>
+
+<table>
+<tr>
+    <th>Emp_Proj_ID</th>
+    <th>Emp_Id</th>
+    <th>Proj_Id</th>
+    <th>role</th>
+    <th>Update</th>
+    <th>Delete</th>
+</tr>
+{% for ep in emp_projects %}
+<tr>
+    <td>{{ ep.emp_proj_id }}</td>
+    <td>{{ ep.employee }}</td>
+    <td>{{ ep.project }}</td>
+    <td>{{ ep.role }}</td>
+     <td>  <a href="{% url 'employee_project_edit' ep.emp_proj_id %}">
+    <button type="button" class="btn btn-warning">Update</button>
+  </a></td>
+    <td>
+         <a href="{% url 'employee_project_delete' ep.emp_proj_id %}">
+    <button type="button" class="btn btn-danger">Delete</button>
+</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<div style="text-align: center;">
+    <a href="{% url 'employee_project_create' %}">
+        <button type="button" class="btn btn-primary">Insert</button>
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}Table{% endblock %}
+
+{% block content %}
+<h1>Employee Table</h1>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Designation</th>
+    <th>Salary</th>
+    <th>Update</th>
+    <th>Delete</th>
+</tr>
+{% for emp in employees %}
+<tr>
+    <td>{{ emp.employee_id }}</td>
+    <td>{{ emp.employee_name }}</td>
+    <td>{{ emp.department_id }}</td>
+    <td>{{ emp.designation }}</td>
+    <td>{{ emp.salary }}</td>
+    <td>
+  <a href="{% url 'employee_edit' emp.employee_id %}">
+    <button type="button" class="btn btn-warning">Update</button>
+  </a>
+</td>
+
+    <td>
+        <a href="{% url 'employee_delete' emp.employee_id %}">
+    <button type="button" class="btn btn-danger">Delete</button>
+</a>
+
+    </td>
+
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<div style="text-align: center;">
+    <a href="{% url 'employee_create' %}">
+        <button type="button" class="btn btn-primary">Insert</button>
+    </a>
+</div>
+{% endblock %}
