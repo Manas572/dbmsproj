@@ -1,0 +1,27 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+*.py[cod]
+*.env
+*.sqlite3
+.env
+
+# VS Code
+.vscode/
+
+# Virtual environments
+venv/
+env/
+Scripts/
+
+# Migrations (optional)
+*/migrations/__pycache__/
+*/migrations/*.py
+
+# System files
+.DS_Store
+Thumbs.db
