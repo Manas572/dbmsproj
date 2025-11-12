@@ -32,7 +32,9 @@ def employee_create(request):
             return redirect('view_employee')
     else:
         form = EmployeeForm()
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'form.html', {
+        'form': form,
+        "list_url": "view_employee",})
 
 def department_create(request):
     if request.method == "POST":
@@ -43,7 +45,9 @@ def department_create(request):
             return redirect('view_department')
     else:
         form = DepartmentForm()
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'form.html', {
+        'form': form,
+        "list_url": "view_department",})
 
 def project_create(request):
     if request.method == "POST":
@@ -54,7 +58,9 @@ def project_create(request):
             return redirect('view_project')
     else:
         form = ProjectForm()
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'form.html', {
+        'form': form,
+        "list_url": "view_project",})
 
 def empproject_create(request):
     if request.method == "POST":
@@ -63,9 +69,12 @@ def empproject_create(request):
             form.save()
             print(connection.queries)
             return redirect('view_employeeproject')
-    else:
+    else:   
         form = EmployeeProjectForm()
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'form.html', {
+        'form': form,
+        "list_url": "view_employeeproject",
+        })
 
 def employee_edit(request, employee_id):
     employee = get_object_or_404(Employee, pk=employee_id)
@@ -74,10 +83,14 @@ def employee_edit(request, employee_id):
         if form.is_valid():
             form.save()
             print(connection.queries)
-            return redirect('view_employeeproject')
+            return redirect('view_employee')
     else:
         form = EmployeeForm(instance=employee)
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'form2.html', {
+        'form': form,
+         "object": employee,
+        "list_url": "view_employee",
+        })
 
 def empproject_edit(request, emp_project_id):
     ep = get_object_or_404(EmployeeProject, pk=emp_project_id)
@@ -89,7 +102,11 @@ def empproject_edit(request, emp_project_id):
             return redirect('view_employeeproject')
     else:
         form = EmployeeProjectForm(instance=ep)
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'form2.html', {
+        'form': form,
+         "object": ep,
+        "list_url": 'view_employeeproject',
+        })
 
 def project_edit(request, project_id):
     pr = get_object_or_404(Project, pk=project_id)
@@ -101,7 +118,11 @@ def project_edit(request, project_id):
             return redirect('view_project')
     else:
         form = ProjectForm(instance=pr)
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'form2.html', {
+        'form': form,
+         "object": pr,
+        "list_url": "view_project",
+        })
 
 def department_edit(request, department_id):
     dt = get_object_or_404(Department, pk=department_id)
@@ -113,7 +134,11 @@ def department_edit(request, department_id):
             return redirect('view_department')
     else:
         form = DepartmentForm(instance=dt)
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'form2.html', {
+        'form': form,
+         "object": dt,
+        "list_url": "view_department",
+        })
 
 def employee_delete(request, employee_id):
     obj = get_object_or_404(Employee, pk=employee_id)

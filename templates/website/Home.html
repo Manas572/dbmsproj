@@ -3,48 +3,68 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-<h1>Database Tables</h1>
+<h1>Database Tables
+<br> Manas kumar (24U022026)
+<br> Ishan Jaiswal (24U022007)
+</h1>
 
-<table border="1">
-    <tr>
-        <th>Table Name</th>
-        <th>Action</th>
-    </tr>
+<br>
+<br>
 
-    <tr>
-        <td>Employee</td>
-        <td>
-            <a href="{% url 'view_employee' %}">
-                <button class="btn btn-dark">View</button>
-            </a>
-        </td>
-    </tr>
 
-    <tr>
-        <td>Departments</td>
-        <td>
-            <a href="{% url 'view_department' %}">
-                <button class="btn btn-dark">View</button>
-            </a>
-        </td>
-    </tr>
+<div class="row row-cols-1 row-cols-md-2 g-4 mb-3 text-center">
+    <div class="col d-flex justify-content-center">
+        <div class="card mb-4 rounded-3 shadow-sm mx-auto" style="max-width: 400px; width:100%;">
+            <div class="card-header py-3 bg-primary text-white">
+                <h4 class="my-0 fw-normal">Employee</h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Manage all employee-related data.</p>
+                <a href="{% url 'view_employee' %}">
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">View</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col d-flex justify-content-center">
+        <div class="card mb-4 rounded-3 shadow-sm mx-auto" style="max-width: 400px; width:100%;">
+            <div class="card-header py-3 bg-primary text-white">
+                <h4 class="my-0 fw-normal">Departments</h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Overview of company departments.</p>
+                <a href="{% url 'view_department' %}">
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">View</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col d-flex justify-content-center">
+        <div class="card mb-4 rounded-3 shadow-sm mx-auto" style="max-width: 400px; width:100%;">
+            <div class="card-header py-3 bg-primary text-white">
+                <h4 class="my-0 fw-normal">Projects</h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Track all projects and statuses.</p>
+                <a href="{% url 'view_project' %}">
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">View</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col d-flex justify-content-center">
+        <div class="card mb-4 rounded-3 shadow-sm mx-auto" style="max-width: 400px; width:100%;">
+            <div class="card-header py-3 bg-primary text-white">
+                <h4 class="my-0 fw-normal">EmployeeProjects</h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Relations between employees and projects.</p>
+                <a href="{% url 'view_employeeproject' %}">
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">View</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <tr>
-        <td>Projects</td>
-        <td>
-            <a href="{% url 'view_project' %}">
-                <button class="btn btn-dark">View</button>
-            </a>
-        </td>
-    </tr>
-
-    <tr>
-        <td>EmployeeProjects</td>
-        <td>
-            <a href="{% url 'view_employeeproject' %}">
-                <button class="btn btn-dark">View</button>
-            </a>
-        </td>
-    </tr>
-</table>
 {% endblock %}

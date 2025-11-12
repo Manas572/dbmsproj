@@ -1,12 +1,13 @@
 {% extends "layout.html" %}
 
-{% block title %}Insert{% endblock %}
+{% block title %}Update{% endblock %}
 
 {% block content %}
- <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="card" style="width: 24rem;">
       <div class="card-body">
-        <h5 class="card-title text-center">Insert data</h5>
+        <h5 class="card-title text-center">Update data</h5>
+        <p class="text-center">You are updating {{ object }}</p>
         <form method="POST" enctype="multipart/form-data" class="form">
           {% csrf_token %}
           {{ form.as_p }}
